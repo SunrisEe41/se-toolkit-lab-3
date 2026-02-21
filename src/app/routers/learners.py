@@ -35,13 +35,13 @@ async def get_learners(enrolled_after: datetime | None = None, session: AsyncSes
 
 # UNCOMMENT AND FILL IN
 #
-# @router.post("/", response_model=Learner, status_code=201)
-# async def post_learner(
-#     body: LearnerCreate,
-#     session: AsyncSession = Depends(get_session),
-# ):
-#     """Create a new learner"""
-#     return await create_learner(session, name=body.name, email=body.email)
+@router.post("/", response_model=Learner, status_code=201)
+async def post_learner(
+    body: LearnerCreate,
+    session: AsyncSession = Depends(get_session),
+):
+    """Create a new learner"""
+    return await create_learner(session, name=body.name, email=body.email)
 
 # Reference:
 # items POST -> creates a row in items table, accepts ItemCreate, returns Item with status 201
